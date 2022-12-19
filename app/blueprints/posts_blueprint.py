@@ -24,7 +24,8 @@ def create():
         post = Post(
             title=form.title.data,
             text=form.text.data,
-            published=form.published.data
+            published=form.published.data,
+            category_id=form.categories.data
         )
         db.session.add(post)
         db.session.commit()
