@@ -2,7 +2,6 @@ from ward import test
 from flask import url_for
 
 from __tests__.fixtures import browser
-from __tests__.factories.post_factory import PostFactory
 from app.models import Category
 
 
