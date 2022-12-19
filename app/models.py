@@ -5,7 +5,8 @@ class Post(db.Model):
     title = db.Column(db.String(100), nullable=False)
     published = db.Column(db.Boolean, default=False)
     text = db.Column(db.Text, nullable=False)
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+    image = db.Column(db.String(255))
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
 
     def __repr__(self) -> str:
         return self.title

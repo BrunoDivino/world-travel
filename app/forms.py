@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import StringField, SubmitField, BooleanField, TextAreaField, SelectField
+from wtforms.fields import StringField, SubmitField, BooleanField, TextAreaField, SelectField, FileField
 
 from app.models import Category
 
@@ -8,6 +8,7 @@ class PostForm(FlaskForm):
     text = TextAreaField('Text')
     published = BooleanField('Publish')
     categories = SelectField('Categories', coerce=int)
+    image = FileField('Imagem')
     submit = SubmitField('Save')
 
     def __init__(self):

@@ -16,6 +16,7 @@ def _(browser=browser):
     browser.fill('text', 'Just a generic text on a blog')
     browser.select('categories', str(category.id))
     browser.check('published')
+    browser.attach_file('image', '__tests__/resources/grecia.jpg')
     browser.find_by_value('Save').click()
 
 
