@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Travel</title>
-</head>
-<body>
-    <main>
-        <h1>Hello Flask</h1>
-        {% if posts %}
-        {% for post in posts %}
-            <h4>
-                <a href="{{ url_for('posts.show', id=post.id) }}">{{ post.title }}</a>
-            </h4>
-        {% endfor %}
-        {% else %}
-            <h4>No post has been found</h4>
-        {% endif %}
-    </main>
-</body>
-</html>
+{% extends 'shared/layouts.html' %}
+
+{% block content %}
+
+<h1>Hello Flask</h1>
+
+{% if posts %}
+{% for post in posts %}
+    <h4>
+        <a href="{{ url_for('posts.show', id=post.id) }}">{{ post.title }}</a>
+    </h4>
+{% endfor %}
+{% else %}
+    <h4>No post has been found</h4>
+{% endif %}
+
+{% endblock %}
