@@ -3,12 +3,13 @@ from flask import url_for
 
 from __tests__.fixtures import browser
 from __tests__.factories.post_factory import PostFactory
+from __tests__.factories.category_factory import CategoryFactory
 
 @test('main page must be online')
 def _(browser=browser):
     browser.visit(url_for('home.index'))
     
-    assert browser.is_text_present('Hello Flask')
+    assert browser.is_text_present('Trips')
 
 @test('Visitor accesses main page and sees posts')
 def _(browser=browser):
@@ -20,13 +21,15 @@ def _(browser=browser):
 
 @test('Visitor sees posts')
 def _(browser=browser):
-    post = PostFactory.create()
+    category = CategoryFactory.create(name='Brazil')
+    post = PostFactory.create(category=category)
 
     browser.visit(url_for('home.index'))
-    browser.links.find_by_text(post.title).click()
+    browser.links.find_by_partial_text(post.title).click()
     
     assert browser.is_text_present(post.title)
     assert browser.is_text_present(post.text)
+    assert browser.is_text_present(category.name)
 
 @test("Visitor accesses main page and doesn't see posts that aren't published")
 def _(browser=browser):

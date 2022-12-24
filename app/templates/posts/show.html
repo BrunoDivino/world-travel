@@ -9,11 +9,10 @@
                 <img src="{{ url_for('media.upload', name=post.image) }}" alt="{{ post.title }}">
             {% endif %}
             <h4 class="text-left">
-                {{ post.title }}
+                {{ post.title }} | <small>{{ post.category.name }}</small>
             </h4>
-            <p>
-                {{ post.text }}
-            </p>
+            <p>{{ post.text }}</p>
+            
         </div>
     </div>
 </section>
