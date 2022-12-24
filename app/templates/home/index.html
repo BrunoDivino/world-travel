@@ -6,6 +6,9 @@
 
 {% if posts %}
 {% for post in posts %}
+    {% if post.image %}
+        <img src="{{ url_for('media.upload', name=post.image) }}" alt="{{ post.title }}">
+    {% endif %}
     <a href="{{ url_for('posts.show', id=post.id) }}">{{ post.title }}</a> <br /><br /><br />
 {% endfor %}
 {% else %}

@@ -22,6 +22,7 @@ def _(browser=browser):
 
     assert browser.url == url_for('home.index')
     assert browser.is_text_present('Post published successfully')
+    assert browser.is_element_present_by_css("img[src*='grecia.jpg']")
     assert Post.query.first().title == 'Taking a vacation at Salvador city'
     assert Post.query.first().text == 'Just a generic text on a blog'
     assert Post.query.first().published == True
