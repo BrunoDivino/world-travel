@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.3/dist/paper.min.css">
+    <link rel="stylesheet" href="/assets/custom.css">
     <title>World Travel</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{{ url_for('categories.new') }}">Register category</a></li>
-            <li><a href="{{ url_for('posts.new') }}">Register post</a></li>
-        </ul>
-    </nav>
+    {% include 'shared/menu.html' %}
 
     {% with messages = get_flashed_messages() %}
         {% for message in messages %}
@@ -23,5 +20,7 @@
     <main>
         {% block content %} {% endblock %}
     </main>
+
+    {% include 'shared/footer.html' %}
 </body>
 </html>

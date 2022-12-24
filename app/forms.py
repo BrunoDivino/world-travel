@@ -8,7 +8,7 @@ class PostForm(FlaskForm):
     text = TextAreaField('Text')
     published = BooleanField('Publish')
     categories = SelectField('Categories', coerce=int)
-    image = FileField('Imagem')
+    image = FileField('Image')
     submit = SubmitField('Save')
 
     def __init__(self):
